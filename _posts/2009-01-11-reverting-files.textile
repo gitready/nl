@@ -5,7 +5,7 @@ title: wijzigingen ongedaan maken
 category: beginner
 ---
 
-Dit is een onderwep wat voor menig git gebruiker een constante bron
+Dit is een onderwerp wat voor menig git gebruiker een constante bron
 van verwarring is, voornamelijkk omdat er meerdere wegen naar Rome
 leiden. Laten we naar de basis commando's kijken voor het ongedaan
 maken van je werk. 
