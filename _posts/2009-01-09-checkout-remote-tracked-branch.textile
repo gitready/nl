@@ -1,15 +1,18 @@
 ---
-published: false
+published: true
 layout: post
 title: checkout tracked remote branch
 category: intermediate
 ---
 
-I frequently need to do this when setting up or syncing my various machines, and I seem to forget the command all the time. So let's say you've got more than one branch on your remote, and you want to bring it down into your local repository as well:
+Dit moet ik vaak doen wanneer ik mijn verschillende machines
+synchroniseer of opzet en ik schijn steeds het commando te vergeten.
+Laten we stellen dat je meer dan een branch op je remote hebt, en dat
+je deze naar je lokale repository wilt brengen:
 
 p=. !http://gitready.com/images/branches.png!
 
-Viewing information on the remote should look something like this:
+Het bekijken van de remote zou er als volgt uit moeten zien:
 
 <pre>
 $ git remote show origin
@@ -22,17 +25,16 @@ $ git remote show origin
         haml master
 </pre>
 
-Luckily, the command syntax for this is quite simple:
+Gelukkig is de syntax voor dit commando redelijk eenvoudig:
 
 <pre>
-git checkout --track -b 
-  <local branch> <remote>/<tracked branch>
+git checkout --track -b <local branch> <remote>/<tracked branch>
 </pre>
 
-So in my case, I used this command:
+Dus in mijn geval, gebruikte ik dit commando:
 
 @git checkout --track -b haml origin/haml@
 
-You can also use a simpler version:
+Je kunt ook een eenvoudigere versie gebruiken:
 
 @git checkout -t origin/haml@

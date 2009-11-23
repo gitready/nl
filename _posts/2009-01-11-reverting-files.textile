@@ -1,24 +1,36 @@
 ---
-published: false
+published: true
 layout: post
-title: reverting files
+title: wijzigingen ongedaan maken
 category: beginner
 ---
 
-This is a topic that is a constant source of confusion for many git users, basically because there's more than one way to skin the proverbial cat. Let's go over some of the basic commands that you'll need to undo your work. 
+Dit is een onderwep wat voor menig git gebruiker een constante bron
+van verwarring is, voornamelijkk omdat er meerdere wegen naar Rome
+leiden. Laten we naar de basis commando's kijken voor het ongedaan
+maken van je werk. 
 
-So, you just want to revert one file back to its original state:
+Dus, je wilt de wijzigingen in een bestand ongedaan maken:
 
 @git checkout <file>@
 
-One problem with this is that you may have is that a file and branch named the same. Since the checkout command is used for both reverting files and swapping out to a different branch, you'll need to use this syntax (thanks, "Norbauer":http://norbauer.com/notebooks/code/notes/git-revert-reset-a-single-file)
+Een probleem hierbij is dat je een bestand kunt hebben wat dezelfde
+naam heeft als een @branch@ . Omdat het @checkout@ commando wordt
+gebruikt voor zowel het ongedaan maken van bestanden als het
+overstappen naar een andere @branch@ , is het nodig de volgende syntax
+te gebruiken (bedankt, "Norbauer":http://norbauer.com/notebooks/code/notes/git-revert-reset-a-single-file)
 
 @git checkout -- <file>@
 
-If you want to throw out all of the changes you've been working on, there's two ways to do that.
+Wanneer je all wijzigingen waarmee je bezig bent ongedaan wilt maken,
+kun je dat op twee manieren doen.
 
-@git checkout -f@ or @git reset --HARD@
+@git checkout -f@ of @git reset --HARD@
 
-Once these commands are run you'll lose all of the work that isn't committed in your directory, so make sure to take caution when using them.
+Wanneer deze commando's klaar zijn ben je al je werk kwijt wat niet ge-
+@commit@ is in je folder, dus zorg ervoor dat je ze met zorg toepast.
 
-Also, be aware that "'git revert' is not equivalent to 'svn revert'!":http://bryan-murdock.blogspot.com/2007/07/git-revert-is-not-equivalent-to-svn.html @git-revert@ is used to reverse commits, something another tip will cover in the future.
+Verder, let op "'git revert' is niet equivalent met 'svn
+revert'!":http://bryan-murdock.blogspot.com/2007/07/git-revert-is-not-equivalent-to-svn.html
+@git-revert@ wordt gebruikt om een @commit@ ongedaan te maken, iets
+wat een toekomstige tip zal behandelen.
