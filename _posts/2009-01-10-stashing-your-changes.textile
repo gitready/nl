@@ -19,7 +19,7 @@ wijzigingen op met:
 
 @git stash@
 
-En bam! Je bent weer terug in je orginele toestand. Probleem opgelost?
+En bam! Je bent weer terug in je originele toestand. Probleem opgelost?
 Breng je opgeborgen werk terug met:
 
 @git stash apply@
@@ -28,13 +28,13 @@ Je kunt meerdere lagen @stash@ -es hebben dus vergeet niet te gebruiken
 
 @git stash list@ 
 
-Om al je huidige opgeborgen werk te zien. Wanneer je een stash die
+Om al je huidige opgeborgen werk te zien. Wanneer je een @stash@ die
 dieper op de stapel ligt wilt toepassen kan dat ook heel eenvoudig.
 Hieronder zie je hoe je de tweede @stash@ die je hebt kunt toepassen:
 
 <code>git stash apply stash@{1}</code>
 
-Je kunt eenvoudig de bovenste @stash@ gebruiken met ("Thanks jamesgolick!":http://jamesgolick.com/):
+Je kunt eenvoudig de bovenste @stash@ gebruiken met ("Bedankt jamesgolick!":http://jamesgolick.com/):
 
 @git stash pop@
 
