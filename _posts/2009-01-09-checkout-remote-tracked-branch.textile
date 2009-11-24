@@ -5,10 +5,7 @@ title: checkout tracked remote branch
 category: intermediate
 ---
 
-Dit moet ik vaak doen wanneer ik mijn verschillende machines
-synchroniseer of opzet en ik schijn steeds het commando te vergeten.
-Laten we stellen dat je meer dan een @branch@ op je remote hebt, en dat
-je deze naar je lokale @repository@ wilt brengen:
+Dit moet ik vaak doen wanneer ik mijn verschillende machines synchroniseer of opzet en ik schijn steeds het commando te vergeten. Laten we stellen dat je meer dan een @branch@ op je remote hebt, en dat je deze naar je lokale @repository@ wilt brengen:
 
 p=. !http://gitready.com/images/branches.png!
 
