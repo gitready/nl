@@ -5,32 +5,23 @@ title: je wijzigingen opbergen
 category: beginner
 ---
 
-Opbergen (to stash als werkwoord, stash als zelfstandig naamwoord
-verstop plek) is een geweldige manier om je werk waar je nu mee
-bezig bent opzij te zetten zodat je er later op terug kunt komen. Je
-bent bijvoorbeeld aan dat geweldige nieuwe stukje functionaliteit
-bezig maar iemand vindt een probleem dat je moet oplossen. Voeg je
-wijzigingen aan de index toe met
+Opbergen (to stash als werkwoord, stash als zelfstandig naamwoord verstop plek) is een geweldige manier om je werk waar je nu mee bezig bent opzij te zetten zodat je er later op terug kunt komen. Je bent bijvoorbeeld aan dat geweldige nieuwe stukje functionaliteit bezig maar iemand vindt een probleem dat je moet oplossen. Voeg je wijzigingen aan de index toe met
 
 @git add .@
 
-Of voeg de individuele bestanden aan de index toe, jouw keuze. Berg je
-wijzigingen op met:
+Of voeg de individuele bestanden aan de index toe, jouw keuze. Berg je wijzigingen op met:
 
 @git stash@
 
-En bam! Je bent weer terug in je originele toestand. Probleem opgelost?
-Breng je opgeborgen werk terug met:
+En bam! Je bent weer terug in je originele toestand. Probleem opgelost? Breng je opgeborgen werk terug met:
 
 @git stash apply@
 
-Je kunt meerdere lagen @stash@ -es hebben dus vergeet niet te gebruiken
+Je kunt meerdere lagen @stash@-es hebben dus vergeet niet te gebruiken
 
 @git stash list@ 
 
-Om al je huidige opgeborgen werk te zien. Wanneer je een @stash@ die
-dieper op de stapel ligt wilt toepassen kan dat ook heel eenvoudig.
-Hieronder zie je hoe je de tweede @stash@ die je hebt kunt toepassen:
+Om al je huidige opgeborgen werk te zien. Wanneer je een @stash@ die dieper op de stapel ligt wilt toepassen kan dat ook heel eenvoudig. Hieronder zie je hoe je de tweede @stash@ die je hebt kunt toepassen:
 
 <code>git stash apply stash@{1}</code>
 
@@ -38,12 +29,10 @@ Je kunt eenvoudig de bovenste @stash@ gebruiken met ("Bedankt jamesgolick!":http
 
 @git stash pop@
 
-Een opmerking over dit commando, het verwijderd de @stash@ voorgoed,
-terwijl @apply@ de @stash@ behoud. Je kunt met de hand een @stash@
-verwijderen met:
+Een opmerking over dit commando, het verwijderd de @stash@ voorgoed, terwijl @apply@ de @stash@ behoud. Je kunt met de hand een @stash@ verwijderen met:
 
 @git stash drop <id>@
 
-Of verwijder alle opgeslagen @stash@ -es met:
+Of verwijder alle opgeslagen @stash@-es met:
 
 @git stash clear@
