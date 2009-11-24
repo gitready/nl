@@ -1,29 +1,29 @@
 ---
-published: false
+published: true
 layout: post
-title: fixing broken commit messages
+title: kapotte commit boodschappen repareren 
 category: advanced
 ---
 
-You just committed that awesome feature/test/bug, but something just isn't right. Either some information isn't filled out, the commit message is wrong, or something else is just messed up. Let's go over what can be done to fix the associated data after the fact.
+Je hebt zojuist die geweldige functionaliteit/test/fout ge-@commit@, maar toch klopt er iets niet. Sommige informatie is verkeerd ingevuld of de @commit@ boodschap is verkeerd, of iets anders is kapot. Laten we kijken naar wat er kan worden gedaan om de bijbehorende data te repareren nadat je deze hebt ge-@commit@.
 
-Fixing the previous commit is very simple. Just use
+De vorige @commit@ repareren is heel eenvoudig. Gebruik gewoon
 
 @git commit --amend@
 
-And that will fire up the commit patch in $EDITOR for you to mess with. Simply edit the message right on the top line of the file, save, quit and you're done. 
+Dit start de @commit@ @patch@ in @$EDITOR@ om mee te frunniken.  Wijzig de boodschap op de bovenste regel van het bestand, sla op, sluit en klaar is Kees.
 
-Now let's say you've got a few commits to fix, or the commit that is broken is a few commits back. This process is a little more complex, but isn't too bad. (Thanks to "Evan Phoenix":http://blog.fallingsnow.net/ for this one.)
+Stel nu dat je een aantal @commit@-s moet repareren, of de @commit@ die kapot is van een aantal @commit@-s geleden. Dit proces is iets gecompliceerder, maar niet slecht. (Bedankt "Evan Phoenix":http://blog.fallingsnow.net/ voor deze tip.)
 
-Here's the scenario: the last 3 commits don't have the right username, email, or perhaps commit message. Let's start by generating patch files for the commits:
+Hier is het scenario: de laatste 3 @commit@-s hebben de verkeerde gebruikersnaam, email, of misschien @commit@ boodschap. Laten we beginnen met het genereren van @patch@ bestanden voor de @commit@-s:
 
 @git format-patch HEAD^^^@
 
-That will generate files in the form of 0001-commit-message that contains the commit diff and metadata. One note with the 3 caret symbols: just add one for each commit you need to go back, and be consistent! *EDIT:* You can also refer to past commits with the syntax HEAD~n, so for this example we'd use HEAD~3. Go ahead and edit these files so they have the proper information. Once that's done, we'll need to reset our repository back a few commits:
+Dit zal bestanden genereren van de vorm @0001-commit-boodschap@ welke de @diff@ en metadata zullen bevatten. Een opmerking over de drie @^@ symbolen: voeg een @^@ toe voor iedere @commit@ die je terug wil, en wees consistent! *EDIT:* Je kunt ook naar vorige @commit@ s verwijzen met @HEAD~n@ syntaxis, voor dit voorbeeld zouden we dus @HEAD~3@ gebruiken. Wijzig deze bestanden zodat de juiste informatie er staat.  Wanneer je dat gedaan hebt dienen we ons @repository@ naar een paar @commit@-s eerder te @reset@-en: 
 
 @git reset --hard HEAD^^^@
 
-Now we can apply each commit to fix the information. Make sure you do it in the right order! (Usually it's ascending)
+Nu kunnen we iedere @commit@ @apply@-en om de informatie te repareren. Verzeker jezelf ervan dat je dit in de juiste volgorde doet! (Normaliter is dit van laag naar hoog)
 
 <pre>
 git am < 0001...
@@ -31,14 +31,14 @@ git am < 0002...
 git am < 0003...
 </pre>
 
-Now if you check @git log@ you should see the right information. If for some reason stuff got messed up, doing a 
+Wanneer je nu @git log@ naloopt zou je de correcte informatie moeten zien. Als op een of andere wijze iets in de soep is gelopen, brengt
 
 @git reset --hard origin/master@
 
-will bring you back to your original changes. Once you've got the information fixed, you'll need to do a force push on the repo:
+je weer terug naar je originele wijzigingen. Wanneer je de informatie hebt gerepareerd, dien je een @push@ te forceren op je @repository@:
 
 @git push -f@
 
-If you don't add the @-f@, git will complain. *WARNING!* Just be aware that modifying commit messages may muck up other's repositories and should be used with caution. In fact, other developers may flat out hate you for doing this. If it's far back enough it's probably a "bad idea to rewrite history anyway.":http://www.youtube.com/watch?v=BytKSy8M4bk
+Wanneer je de @-f@ weg laat, zal git klagen. *WAARSCHUWING!* Wees je ervan bewust dat het wijzigen van de @commit@ boodschappen iemand anders zijn @repository@ kan verknallen derhalve dient het met zorg gebruikt te worden. In feite kun je met dit soort acties de toorn van menig ontwikkelaar op je hals halen. Wanneer het ver in de geschiedenis is, is het waarschijnlijk sowieso niet zo'n goed idee "bad idea to rewrite history anyway.":http://www.youtube.com/watch?v=BytKSy8M4bk
 
-If you know of any unexpected or uncovered consequences please let us know in the comments. Another tip in the future will cover fixing the actual committed files and making sure that all repos are up to date.
+Wanneer je onverwachte of niet aangemerkte consequenties waarneemt laat het ons dan weten via de commentaren. Een andere tip in de toekomst zal het repareren behandelen van de bestanden die onderdeel uitmaken van de @commit@ en daarbij het naar de laatste toestand brengen van alle @repository@-s.
