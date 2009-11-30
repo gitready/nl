@@ -1,36 +1,36 @@
 ---
-published: false
+published: true
 layout: post
-title: visualizing your repo
+title: visualiseer je repo 
 category: intermediate
 ---
 
-So, you want to see your repository in a brand new way. You're sick of the command line, you need to see some graphs! Pixels! Buttons! Graphics! Dialog boxes! Ok, we get the point. 
+Zo, wil je je @repository@ op een geheel nieuwe wijze zien. Heb je genoeg van de commando regel, heb je wat grafieken nodig! Punten! Knoppen! Graphics! Dialoog dozen! Oké, we zien je punt. 
 
-Our first option is viewing your repo in a browser. This functionality is packaged with most git installs:
+Onze eerste optie is je @repo@ bekijken in een browser. Deze functionaliteit is verpapt met de meeste git installaties:
 
 @git instaweb@
 
-This will fire up a server, usually "lighttpd":http://lighttpd.net, to serve a simple web interface for your repository. You can browse commits, trees, view files, what have you. 
+Dit start een server, meestal "lighttpd":http://lighttpd.net, om je @repository@ op te dienen als een eenvoudig web interface. Je kut je @commits@, @trees@ navigeren, je bestanden bekijken en wat al niet meer zij.
 
 p=. !/images/instaweb.png!
 
-This is really useful if you need to dive down and see history but you don't know the commands yet. (And it's easier too.) If you don't have lighttpd installed and don't want to bother with it, running
+Dit is vooral handig wanneer je in de geschiedenis wilt duiken maar de commando's nog niet weet. (En eenvoudiger is het ook.) Wanneer je lighttpd niet hebt geïnstalleerd en geen zin hebt om het te installeren, uitvoeren,
 
 @git instaweb --httpd webrick@
 
-will force WEBrick to serve the page, which will work just as well if Ruby is installed on your system. It also works with Apache, just check "instaweb's manpage":http://www.kernel.org/pub/software/scm/git/docs/git-instaweb.html to see the supported server and other goodies.
+zal forceren dat WEBrick de pagina te serveren, wat net zo goed werkt als Ruby is geïnstalleerd op je systeem. Het werkt ook met Apache, bekijk "instaweb's manpage":http://www.kernel.org/pub/software/scm/git/docs/git-instaweb.html om de ondersteunde server en andere snuisterijen te zien.
 
-Webpages are great and all, but what if you want to see your commits in a more...graphical manner? Look no further than gitk or gitx then. These programs give you a more dynamic view of your repository and let you actually see branches and merges take place:
+Webpagina's zijn geweldig, maar wat als je je @commits@ op een nog grafischere manier wilt zien? Zoek dan niet verder dan gitk of gitx. Deze programma's geven je en dynamisch-ere kijk op je @repository@ en laat je de werkelijke @branches@ en @merges@ zien die plaats vinden:
 
 p=. !/images/gitk.png!
 
-Need some graphical git loving? Use gitk with most git installs by running @gitk@ or "download gitx for OSX":http://gitx.frim.nl/. Windows users, if you know of an equivalent, comment away!
+Heb je nog meer grafische git liefde nodig? Gebruik gitk bij de meeste installaties van git door het @gitk@ commando uit te voeren of "download gitx voor OSX":http://gitx.frim.nl/. Windows gebruikers, als jullie een equivalent weten, gebruik de commentaar faciliteit!
 
-There's also plenty of git graphical love over at "GitHub":http://github.com for every project, be it visualizing the impact individuals have had on the project, times that people have worked on the project, and even more. Definitely play around with various graphs they have to offer if you haven't yet.
+Er is ook veel grafische git liefde op "GitHub":http://github.com voor ieder project, zoals het visualiseren van de impact die iedere individu op een project heeft gehad, tijden die mensen op het project hebben gewerkt, en nog meer. Speel met de verschillende grafieken die ze aanbieden wanneer je dat nog niet hebt gedaan.
 
 p=. !/images/impact.png!
 
 p=. !/images/punchcard.png!
 
-There's also plenty of other good visualizers over at the "GitWiki":http://git.or.cz/gitwiki/InterfacesFrontendsAndTools#head-60c66fc11f2aaab74873cbb3c434f2075abd5d87. If you know of any other good ways to see your repository graphically, let us know in the comments. I'll continue to update the post with more and better knowledge as it becomes available.
+Er zijn vele goede visualisators te vinden op "GitWiki":http://git.or.cz/gitwiki/InterfacesFrontendsAndTools#head-60c66fc11f2aaab74873cbb3c434f2075abd5d87. Wanneer je andere manieren weet om grafisch je @repository@ te laten zien, gebruik de commentaar faciliteit. Ik zal deze post blijven onderhouden met meer en betere kennis wanneer deze beschikbaar komt. 
