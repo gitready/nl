@@ -1,15 +1,15 @@
 ---
 published: true
 layout: post
-title: interactive adding
+title: interactief toevoegen
 category: intermediate
 ---
 
-Soms is simpelweg toevoegen met @git add .@ of @git commit -am@ niet genoeg. Je wilt je wijzigingen splitsen over meerdere @commits@, of je bent niet zover dat je all je wijzigingen wil toevoegen. En wie wil er nu individuele bestanden een voor een toevoegen? Dat is gewoon saai. Entree voor de interactieve toevoeger: 
+Soms is simpelweg toevoegen met @git add .@ of @git commit -am@ niet genoeg. Je wilt je wijzigingen splitsen over meerdere @commits@, of je bent niet zover dat je all je wijzigingen wil toevoegen. En wie wil er nu individuele bestanden een voor een toevoegen? Dat is gewoon saai. Entree voor de interactieve toevoeg-er: 
 
 @git add -i@
 
-Laten we door een voorbeeld van het gebruik van de interactieve modus heen lopen. Ik heb wat wijzigingen aan het "gitready":http://github.com/qrush/gitready project zijn readme en eeen ander bestand gemaakt. Het gebruiken van het bovengenoemde commando geeft de volgende output, de status van de index:
+Laten we door een voorbeeld van het gebruik van de interactieve modus heen lopen. Ik heb wat wijzigingen aan het "gitready":http://github.com/qrush/gitready project zijn readme en een ander bestand gemaakt. Het gebruiken van het bovengenoemde commando geeft de volgende output, de status van de index:
 
 <pre>
          staged     unstaged path
@@ -22,9 +22,9 @@ Laten we door een voorbeeld van het gebruik van de interactieve modus heen lopen
 What now> 
 </pre>
 
-Zoals je ziet, we hebben genoeg commando's tot onze beschikking. Als we dit scherm nogmaals willen zien, kunnen we het @status@ commando gebruiken om het terug te brengen. De +3/-1 zijn het aantal regels die zijn toegevoegd/verwijderd, de gebruikelijke plus en min symbolen die je ziet wanneer je een @pull@ uitvoerd.
+Zoals je ziet, we hebben genoeg commando's tot onze beschikking. Als we dit scherm nogmaals willen zien, kunnen we het @status@ commando gebruiken om het terug te brengen. De +3/-1 zijn het aantal regels die zijn toegevoegd/verwijderd, de gebruikelijke plus en min symbolen die je ziet wanneer je een @pull@ uitvoert.
 
-Laten we de wijzigingen de we gemaakt hebben aan de readme toevoegen. Het @update@ commando staat ons toe dat te doen. Nadat we dit commando gekozen hebben zien we de volgende output:
+Laten we de wijzigingen die we gemaakt hebben aan de readme toevoegen. Het @update@ commando staat ons toe dat te doen. Nadat we dit commando gekozen hebben zien we de volgende output:
 
 <pre>
            staged   unstaged path
@@ -41,7 +41,7 @@ En als we 1 selecteren voor @update@, zal @update@ ons vertellen dat het bestand
 2:    unchanged      +1/-1  _layouts/default.html
 </pre>
 
-Wanneer je klaar bent, kun je deze modus verlaten met het @quit@ commando, en je werk @committen@. Wanneer je de toevoeger niet vertrouwd, zal @git status@ je laten zien dat uitsluitend readme @staged@ voor @commit@ is:
+Wanneer je klaar bent, kun je deze modus verlaten met het @quit@ commando, en je werk @committen@. Wanneer je de toevoeg-er niet vertrouwd, zal @git status@ je laten zien dat uitsluitend readme @staged@ voor @commit@ is:
 
 <pre>
 # On branch master
@@ -54,5 +54,5 @@ Wanneer je klaar bent, kun je deze modus verlaten met het @quit@ commando, en je
 # modified:   _layouts/default.html
 </pre>
 
-Er zijn voldoende nuttige commando's die de interactieve toevoeging te bieden heeft, dit is pas het begin. Bekijk het @help@ commando om de rest van de commando's te zien de je tot je beschikking hebt. In de toekomst zullen er meer tips verschijnen of de commando's die je kunt gebruiken in interactieve modus.
+Er zijn voldoende nuttige commando's die de interactieve toevoeging te bieden heeft, dit is pas het begin. Bekijk het @help@ commando om de rest van de commando's te zien die je tot je beschikking hebt. In de toekomst zullen er meer tips verschijnen over de commando's die je kunt gebruiken in interactieve modus.
 
