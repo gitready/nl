@@ -1,0 +1,34 @@
+---
+layout: default
+title: noot van de vertaler
+---
+<div class="grid_8 alpha omega content">
+h2. {{ page.title }}
+
+Het vertalen van deze tips is niet altijd eenvoudig. Wanneer er in de orginele engelse tekst woorden zijn gebruikt die je zou kunnen kenmerken als een vervoeging van of referentie naar een git commando of een git begrip, is deze in een @constante breedte font@ weergegeven. Dit is ook de weergave die wordt gebruikt voor code en console output. Ik ben van mening dat dit uiteindelijk begrijpelijker is dan het gebruiken van worden als @bewaarplaats@ en @toevertrouwen@.
+
+Om toch de betekenis van de commando's duidelijk te maken volgt hieronder een lijstje met de engelse woorden en hun overeenkomstige vertaling en uitleg:
+
+|_. Engels begrip/commando|_. Vertaling|_. Uitleg|
+|add|toevoegen|het toevoegen van bestanden of delen daarvan aan de index|
+|bisect|halveren|het zoeken naar een wijziging die een fout heeft geintroduceerd met behulp van binair zoeken|
+|checkout|uitchecken|het uittrekken van een @branch@ of een pad naar een @working tree@|
+|clone|kloon|het klonen von een @repository@ naar een nieuwe folder|
+|commit|toevertrouwen|wijzigingen opslaan in het @repository@|
+|diff|verschil|toon de wijzigingen tussen @commits@, @commit@ en @working tree@, etc.|
+|fetch|ophalen|objecten en revisies van een ander @repository@ ophalen|
+|grep||toon regels die voldoen aan een patroon|
+|init|initialiseer|creeer een leeg git @repository@ of her-initialiseer een bestaand @repository@|
+|log|logboek|toon het @commit@ logboek|
+|merge|samenvoegen|voeg twee of meer ontwikkel geschiedenissen samen|
+|mv|verplaats|verplaats of verander de naam van een bestand, folder, of een @symlink@|
+|pull|trek|@fetch@ en @merge@ met een ander @repository@ of local @branch@|
+|rebase||plak lokale @commits@ voor de laatste @commit@ van een aangepast @upstream@ @head@|
+|reset||plaats het huidig HEAD in een bepaald toestand|
+|rm|verwijder|verwijder bestanden van de @working tree@ en van de index|
+|show|toon|toon veschillende soorten objecten|
+|status|status|toon de status van de @working@ tree|
+|tag|etiketteren|creeer, toon, verwijder of verifier een @tag@ object ondertekend met GPG|
+
+Algemene versie beheer concepten worden uitstekend uitgelegd op "deze":http://nl.wikipedia.org/wiki/Versiebeheersysteem wikipedia pagina.
+</div>

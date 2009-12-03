@@ -156,7 +156,10 @@ h3{
 	font-weight: bold;
   font-size: 16px;
 }
-
+table,th,td{
+    text-align: left;
+    padding: 5px 15px 5px 15px; 
+}
 #post h3{ margin-left: 5px; }
 
 
