@@ -1,15 +1,15 @@
 ---
-published: false
+published: true
 layout: post
-title: piecemeal staging
+title: samengelapte staging
 category: advanced
 ---
 
-This is a follow up to the comments from yesterday's article about "interactive adding":http://gitready.com/intermediate/2009/01/14/interactive-adding.html. Readers were begging coverage of powerful @git add -p@, a shortcut to the patch mode of interactive adding. This command is capable of breaking up changes in files into smaller hunks so you can commit *exactly* what you want, and not just the whole file. 
+Dit is een vervolg up het commentaar van het artikel van gisteren over "interactief toevoegen":http://nl.gitready.com/intermediate/2009/01/14/interactive-adding.html. Lezers smeekten om uitleg over het krachtige @git add -p@ commando, een kortere weg naar de @patch@ mode van interactief toevoegen. Dit commando can wijzigingen in bestanden opdelen in @hunks@ zodat je *precies* kunt @committen@ wat je wilt en niet uitsluitend het gehele bestand.
 
-This behavior is very helpful since it allows you to version any "hunk" of text in the file that you'd like. Perhaps that one line of code will break the build on others' machines or the build server, but just not yours. You get the point.
+Dit gedrag is erg handig omdat het je toestaat iedere @hunk@ van de tekst te versioneren die je zou willen. Misschien breekt die ene regel de bouw op machines van anderen of de bouw server, maar niet jouw bouw. Je begrijpt mijn punt.
 
-Let's go through an example of using it, making changes to our project's trusty README file again. Here's what @git diff@ gives us from the changes that were just made:
+Laten we kijken naar een voorbeeld van het gebruik, weer door wijzigingen aan te brengen aan ons project zijn betrouwbare README. Hier is wat @git diff@ on verteld over de wijzigingen die we zojuist gemaakt hebben:
 
 <pre>
 diff --git a/README.md b/README.md
@@ -19,25 +19,25 @@ index 2556dae..45d8b6e 100644
 @@ -1,6 +1,14 @@
 > There is only one way...
 > ~ Henry Van Dyke
-   
+
 +# Project information
 +
 +Blah blah blah...
 +
 # Want to contribute?
 
-If you have ideas about... 
+If you have ideas about...
 +
 +# About
 +
 +This blog is just awesome.
 </pre>
 
-So as we can see, we've made changes in separate parts of the file. However, I want to only commit the lower half. Besides, who really needs documentation anyway? Enter:
+Zoals je kunt zien hebben we wijzigingen gemaakt in verschillende delen van het bestand. Echter ik wil uitsluitend het onderste deel @committen@. Trouwens, wij heeft er nu documentatie nodig? Type:
 
 @git add -p@
 
-Run this and you'll be greeted with a prompt just like @git add -i@, but it has quite a few options:
+Wanneer je dit doet wordt je begroet met een vraag net zoals @git add -i@, maar deze heeft behoorlijk wat opties:
 
 <pre>
 Stage this hunk [y/n/a/d/s/e/?]? ?
@@ -49,7 +49,7 @@ e - manually edit the current hunk
 ? - print help
 </pre>
 
-Most are pretty self-explanatory, but let"s go over the really cool ones. What we really want is the @s@ option, which will split the file into two smaller hunks of code, one for the higher "Project Information" block and one for the "About" block. Once it"s split it will prompt you with just the changes for that hunk:
+De meeste zijn evident, maar laten we de echt vette bekijken. Wat we echt willen is de @s@ optie, deze splitst het bestand in kleinere code @hunks@, een voor het hogere "Project Information" blok en een voor het "About" blok. Wanneer het gesplitst is word je bevraagd met de wijzigingen voor die @hunk@:
 
 <pre>
 Split into 2 hunks.
@@ -67,7 +67,7 @@ If you have ideas about...
 Stage this hunk [y/n/a/d/j/J/e/?]? n
 </pre>
 
-From here we can ignore it with @n@, and move on to the next one and add it with @y@:
+Vanaf hier kunnen we de wijzigingen negeren met @n@, en doorgaan met de volgende en deze toevoegen met @y@:
 
 <pre>
 @@ -4,3 +8,7 @@
@@ -81,8 +81,8 @@ If you have ideas about...
 Stage this hunk [y/n/a/d/K/e/?]? y
 </pre>
 
-Doing a @git status@ will show changes to be committed and changes to be staged on one file. Strange, but it makes sense: we staged half the changes, and the other half are not yet added to the index. 
+Een @git status@ uitvoeren laat de wijzigingen zien die op het punt staan @gecommit@ te worden en de wijzigingen die zullen worden @gestaged@ op een bestand. Vreemd, maar logisch: we hebben de helft van de wijzigingen @gestaged@, en de andere helft is nog niet aan de index toegevoegd.
 
-There's also the @e@ option, which will let you to manually flip the hunks on and off in your favorite editor. Instructions are included with that option, so go play around with it when you get the chance. (No pun intended.)
+Er is ook een @e@ optie, deze laat je handmatig @hunks@ aan en uitschakelen in je favoriete editor. Instructies zijn inbegrepen bij deze optie, dus speel ermee wanneer je de kans krijgt. (Niet grappig bedoeld.)
 
-If you've got any stories as to how @git add -p@ has helped you (or if a neat feature was missed), let us know in the comments! 
+Als je verhalen hebt over hoe @git add -p@ je heeft geholpen (of een andere geweldige functie die vergeten is), laat het ons weten in de commentaren!
