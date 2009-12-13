@@ -1,13 +1,13 @@
 ---
-published: false
+published: true
 layout: post
-title: restoring lost commits
+title: terugzetten van verloren commits
 category: advanced
 ---
 
-So, you just did a @git reset --hard HEAD^@ and threw out your last commit. Well, it turns out you really did need those changes. You'll never be able to implement that algorithm that perfectly twice, so you need it back. Don't fear, git should still have your commit. When you do a reset, the commit you threw out goes to a "dangling" state. It's still in git's datastore, waiting for the next garbage collection to clean it up. So unless you've ran a @git gc@ since you tossed it, you should be in the clear to restore it.
+Zo, je hebt zojuist een @git reset --hard HEAD^@ gedaan en je laatste @commit@ weggegooid. Welnu, het blijkt dat je die wijziging wel degelijk nodig hebt. Het lukt nooit om dat algoritme twee keer perfect te implementeren, dus je moet het terug krijgen. Wees niet bang, git zou je @commit@ nog moeten hebben.  Wanneer je een reset uitvoert, gaat de verwijderde @commit@ over naar een "bungelende" toestand. Hij is nog steeds in git's administratie, wachtend op de eerst volgend @garbage collection@ om hem te verwijderen. Dus tenzij je @git gc@ gedraaid hebt sinds je, je @commit@ hebt verwijderd zou je, je @commit@ moeten kunnen terughalen.
 
-For these examples, I'm working with the "code for this blog":http://github.com/qrush/gitready. From the top, we just ran:
+Voor de volgende voorbeelden, werk ik met het de "code voor deze blog":http://github.com/qrush/gitready. Van de top, hebben we zojuist uitgevoerd:
 
 <pre>
 $ git show-ref -h HEAD
@@ -20,7 +20,7 @@ $ git show-ref -h HEAD
   39ba87bf28b5bb223feffafb59638f6f46908cac HEAD
 </pre>
 
-So our @HEAD@ has been backed up by one commit. At this point if we wanted it back we could just @git pull@, but we're assuming that only our local repository knows about the commit. We need the SHA1 of the commit so we can bring it back. We can prove that git knows about the commit still with the @fsck@ command:
+Dus ons @HEAD@ is een @commit@ teruggespoeld. Wanneer we op dit moment deze @commit@ terug willen krijgen kunnen we gewoon @git pull@ uitvoeren, maar we nemen aan dat uitsluitend onze lokale @repository@ de @commit@ kent. We hebben the SHA1 van de @commit@ nodig om hem terug te kunnen brengen. We kunnen bewijzen dat git nog steeds iets weet over de betreffende @commit@ met het @fsck@ commando:
 
 <pre>
 $ git fsck --lost-found
@@ -28,7 +28,7 @@ $ git fsck --lost-found
   dangling commit 7c61179cbe51c050c5520b4399f7b14eec943754
 </pre>
 
-You can also see the that git knows about the commit still by using the @reflog@ command:
+Je kunt ook zien dat git nog weet heeft van de commit door het @reflog@ commando te gebruiken:
 
 <pre>
 $ git reflog
@@ -37,7 +37,7 @@ $ git reflog
   [... lots of other refs ...]
 </pre>
 
-So, we now have our SHA1: @7c61179@. If we want to get immediately apply it back onto our current branch, doing a @git merge@ will recover the commit:
+Dus we hebben nu onze SHA1:@7c61179@. Als we meteen de @commit@ terug willen krijgen in onze huidige @branch@, zorgt een @git merge@ voor het terugbrengen van onze commit:
 
 <pre>
 $ git merge 7c61179
@@ -49,6 +49,6 @@ $ git merge 7c61179
 </pre>
 
 
-This command will bring your lost changes back and make sure that @HEAD@ is pointing at the commit. From here you can continue to work as normal! You could also checkout the SHA1 into a new branch, but really a merge is the fastest and easiest way to restore that lost commit once you have the hash. If you have other ways let us know in the comments!
+Dit commando brengt onze verloren wijzigingen terug verzeker jezelf ervan dat @HEAD@ wijst naar de juiste @commit@. Vanaf nu kun je je werk voortzetten alsof er niets is gebeurt! Je kunt ook de SHA1 @checkouten@ in een nieuwe @branch@, maar echt een @merge@ is de snelste en gemakkelijkste manier om de verloren @commit@ terug te brengen wanneer je eenmaal de hash hebt. Als je andere manieren weet laat het ons weten in het commentaar!
 
-If you want some more options on what to do in this situation, "Mathieu Martin's":http://programblings.com/ "illustrated guide to recovering lost commits with Git":http://programblings.com/2008/06/07/the-illustrated-guide-to-recovering-lost-commits-with-git has plenty for you.
+Als je meer keuzes over wat te doen in deze situatie wilt weten, "Mathieu Martin's":http://programblings.com/ " geïllustreerde gids over het terugbrengen van verloren @commits@ met Git":http://programblings.com/2008/06/07/the-illustrated-guide-to-recovering-lost-commits-with-git heeft er genoeg voor je.
