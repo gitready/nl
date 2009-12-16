@@ -1,25 +1,25 @@
 ---
-published: false
+published: true
 layout: post
-title: the staging area
+title: de staging ruimte
 category: beginner
 ---
 
-One of the most essential concepts to Git is that of the staging area. Its use can fundamentally change how you work, for the better! Let's go over how exactly it works and what you'll need to know to use it.
+Een van de meest essentiële concepten van Git is de @staging area@. Zijn gebruik kan je manier van werken op een fundamentele manier veranderen, verbeteren! Laten we kijken hoe het precies werkt en wat je moet weten om het te gebruiken. 
 
-With most other version control systems, there's 2 places to store data: your working copy (the folders/files that you're currently using) and the datastore (where the version control decides how to pack and store your changes). In Git there's a third option: the staging area (or index). It's basically a loading dock where you get to determine what changes get shipped away.
+Met de meeste andere versie beheer systemen zijn er 2 plaatsen voor het opslaan van je data: je werk kopie (de folders/bestanden die je op dit moment gebruikt) en de data opslag (waar het versie beheer systeem besluit je wijziging te verpakken en op te slaan). In Git is er een derde optie: de @staging area@ of (@index@). Het is in zekere zin het laadperron waar je kunt bepalen welke wijzigingen worden verzonden.
 
 p=. "!http://farm4.static.flickr.com/3259/2441544705_4c6f7e9b78.jpg!":http://flickr.com/photos/mundane_joy/2441544705/
 
-Since the working directory and what gets saved by Git are essentially decoupled, this allows the developer to build up their commits however they want, and not in a fashion where the VCS tells you. Since there's a layer between when Git actually saves the data, you gain a lot more flexibility and control.
+Omdat de werk folder en wat wordt opgeslagen door Git los van elkaar zijn, heeft de ontwikkelaar de vrijheid zijn @commit@ op te bouwen hoe hij dat wil, en niet op de manier waarop het versie beheer systeem het je verteld. Omdat er een laag zit tussen wanneer Git daadwerkelijk je data opslaat en het maken van je wijzigingen, krijg je veel meer flexibiliteit en controle.
 
-Using the index is quite simple with the @git add@ and @git commit@ commands. Basically, you @add@ files onto the index, and once you're satisfied with the changes @commit@ them:
+Het gebruiken van de @index@ is eenvoudig met de @git add@ en @git commit@ commando's. Je @add@ bestanden aan de index, en wanneer je tevreden bent @commit@ je de wijzigingen:
 
 p=. "!http://whygitisbetterthanx.com/images/index1.png!":http://whygitisbetterthanx.com/#the-staging-area
 
-Once they're in the repository you can @push@ them to remote locations, @merge@ them into other branches, and much more. There's also actions that can be performed on the staging area itself, such as "temporarily stashing your changes":http://gitready.com/beginner/2009/01/10/stashing-your-changes.html. 
+Wanneer ze in het @repository@ zitten kun je ze @push-en@ naar @remote@ (=verre) locaties, ze @mergen@ naar andere @branches@, en nog veel meer. Er zijn ook acties die je op de @index@ zelf kunt uitvoeren, zoals  "tijdelijk je wijzigingen parkeren":http://nl.gitready.com/beginner/2009/01/10/stashing-your-changes.html. 
 
-Let's go through just a basic example of using the staging area. I just made some changes:
+Laten we door een eenvoudig voorbeeld van het gebruik van de @index@ lopen. Ik heb zojuist wat wijzigingen gedaan:
 
 <pre>
 $ git status
@@ -37,7 +37,7 @@ $ git status
   no changes added to commit (use "git add" and/or "git commit -a")
 </pre>
 
-So in this example we have 2 files that Git knows about, and one it does not: help.txt. If we do @git add .@, that will add everything that has been changed or any new files that have not been tracked yet. The add command doesn't store the data yet, it simply places it on the loading dock, ready for the next @git commit@ truck to ship it away. 
+In dit voorbeeld zijn er 2 bestanden waar Git weet van heeft, en een onbekend bestand: help.txt. Wanneer we @git add .@ uitvoeren, zullen alle bestanden die gewijzigd zijn en alle nieuwe bestanden die nog niet bekend zijn bij Git aan de @index@ worden toegevoegd. Het @add@ commando slaat de data niet op, het plaatst ze slechts op het laadperron, klaar om door de @git commit@ vrachtwagen te worden meegenomen. 
 
 <pre>
 $ git add .
@@ -51,7 +51,7 @@ $ git status
       new file:   help.txt
 </pre>
 
-Just like the prompt says, you can use @git reset HEAD <file>@ to restore files back to their modified state. This way, you can commit exactly what you wanted. "You can also commit specific lines of files if you really wanted.":http://gitready.com/advanced/2009/01/15/piecemeal-staging.html If you're wondering about how to revert files, "there's a whole tip dedicated to that as well.":http://gitready.com/beginner/2009/01/11/reverting-files.html From here, doing a @git commit@ will move all of the files into Git's data storage, and you're set!
+Zoals de prompt zegt, je kunt @git reset HEAD <bestand>@ gebruiken om je bestanden uit de @index@ te verwijderen. Op deze manier kun je precies wat je wil @commit-en@. "Je kunt ook specifieke regels uit je bestand @commit-en@ mocht je dat echt willen":http://nl.gitready.com/advanced/2009/01/15/piecemeal-staging.html Wanneer je je afvraagt hoe je wijzigingen ongedaan kunt maken, "daar is zelfs ook een hele tip aan gewijd.":http://nl.gitready.com/beginner/2009/01/11/reverting-files.html Vanaf hier, zal een @git commit@ alle bestanden naar de data opslag van Git verplaatsen, en je zit gebakken!
 
 <pre>
 $ git commit -m "Adding stuff"
@@ -60,9 +60,9 @@ $ git commit -m "Adding stuff"
    create mode 100644 help.txt
 </pre>
 
-If you're looking for more information on the index, check out these fantastic posts:
+Wanneer je op zoek bent naar meer informatie over de @index@, bekijk dan deze fantastische posts:
 
 # "The Thing About Git":http://tomayko.com/writings/the-thing-about-git
 # "Git Book - The Git Index":http://book.git-scm.com/1_the_git_index.html
 
-If you know of other resources that explain the index, let us know in the comments!
+Als je nog andere bronnen kent die de @index@ uitleggen, laat het ons weten in het commentaar!
